@@ -1,12 +1,16 @@
-import * as types from "./actionsType";
+import * as types from "./actionTypes";
 import * as courseApi from "../../api/courseApi";
 
-export function createCourse(course) {
-  return { type: types.CREATE_COURSE, course };
+export function loadCoursesSuccess(courses) {
+  return { type: types.LOAD_COURSES_SUCCESS, courses };
 }
 
-export function loadCoursesSucess(courses) {
-  return { type: types.LOAD_COURSES_SUCCESS, courses };
+export function updateCourseSuccess(course) {
+  return { type: types.UPDATE_COURSE_SUCCESS, course };
+}
+
+export function createCourseSuccess(courses) {
+  return { type: types.CREATE_COURSE_SUCCESS, courses };
 }
 
 export function loadCourses() {
@@ -14,10 +18,27 @@ export function loadCourses() {
     return courseApi
       .getCourses()
       .then(courses => {
-        dispatch(loadCoursesSucess(courses));
+        dispatch(loadCoursesSuccess(courses));
       })
       .catch(error => {
         throw error;
       });
   };
 }
+
+export const saveCourse = course => {
+  // eslint-disable-next-line no-unused-vars
+  return (dispatch, getState) => {
+    //getState contains all Redux state data
+    return courseApi
+      .saveCourse(course)
+      .then(savedCourse => {
+        course.id
+          ? dispatch(updateCourseSuccess(savedCourse))
+          : dispatch(createCourseSuccess(savedCourse));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+};

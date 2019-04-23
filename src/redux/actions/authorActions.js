@@ -1,7 +1,7 @@
-import * as types from "./actionsType";
+import * as types from "./actionTypes";
 import * as authorApi from "../../api/authorApi";
 
-export function loadAuthorsSucess(authors) {
+export function loadAuthorsSuccess(authors) {
   return { type: types.LOAD_AUTHORS_SUCCESS, authors };
 }
 
@@ -10,7 +10,7 @@ export function loadAuthors() {
     return authorApi
       .getAuthors()
       .then(authors => {
-        dispatch(loadAuthorsSucess(authors));
+        dispatch(loadAuthorsSuccess(authors));
       })
       .catch(error => {
         throw error;

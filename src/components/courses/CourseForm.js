@@ -15,23 +15,23 @@ const CourseForm = ({
     <form onSubmit={onSave}>
       <h2>{course.id ? "Edit" : "Add"} Course</h2>
       {errors.onSave && (
-        <div className="alert alert-danger" role="alert">
+        <div className='alert alert-danger' role='alert'>
           {errors.onSave}
         </div>
       )}
       <TextInput
-        name="title"
-        label="Title"
+        name='title'
+        label='Title'
         value={course.title}
         onChange={onChange}
         error={errors.title}
       />
 
       <SelectInput
-        name="authorId"
-        label="Author"
+        name='authorId'
+        label='Author'
         value={course.authorId || ""}
-        defaultOption="Select Author"
+        defaultOption='Select Author'
         options={authors.map(author => ({
           value: author.id,
           text: author.name
@@ -41,14 +41,14 @@ const CourseForm = ({
       />
 
       <TextInput
-        name="category"
-        label="Category"
+        name='category'
+        label='Category'
         value={course.category}
         onChange={onChange}
         error={errors.category}
       />
 
-      <button type="submit" disabled={saving} className="btn btn-primary">
+      <button type='submit' disabled={saving} className='btn btn-primary'>
         {saving ? "Saving..." : "Save"}
       </button>
     </form>

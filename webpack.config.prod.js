@@ -50,25 +50,25 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader", "eslint-loader"]
       },
-      {
-        test: /(\.css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => [require("cssnano")],
-              sourceMap: true
-            }
-          }
-        ]
-      }
+      // {
+      //   test: /(\.css)$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     {
+      //       loader: "css-loader",
+      //       options: {
+      //         sourceMap: true
+      //       }
+      //     },
+      //     {
+      //       loader: "postcss-loader",
+      //       options: {
+      //         plugins: () => [require("cssnano")], // need to replace cssnano with something else
+      //         sourceMap: true
+      //       }
+      //     }
+      //   ]
+      // }
     ]
   }
 };

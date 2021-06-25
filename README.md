@@ -36,13 +36,13 @@
 ### Development Dependencies
 
 | **Dependency**                  | **Use**                                                          |
-| ------------------------------- | ---------------------------------------------------------------- |
+| ------------------------------- | ---------------------------------------------------------------- | ---------- | --- |
 | @babel/core                     | Transpiles modern JavaScript so it runs cross-browser            |
 | babel-eslint                    | Lint modern JavaScript via ESLint                                |
 | babel-loader                    | Add Babel support to Webpack                                     |
 | babel-preset-react-app          | Babel preset for working in React. Used by create-react-app too. |
 | css-loader                      | Read CSS files via Webpack                                       |
-| cssnano                         | Minify CSS                                                       |
+| <!--                            | cssnano                                                          | Minify CSS | --> |
 | enzyme                          | Simplified JavaScript Testing utilities for React                |
 | enzyme-adapter-react-16         | Configure Enzyme to work with React 16                           |
 | eslint                          | Lints JavaScript                                                 |
